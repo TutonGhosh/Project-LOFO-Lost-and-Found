@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOFO</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="shortcut icon" href="assets/lofo-logo.png.png" type="image/x-icon">
+    <!-- DaisyUI & TailwindCSS CDS -->
+     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+</head>
+<body class="font-outfit bg-[#f4f5f7] h-[100vh] flex justify-center items-center">
+    <!-- Login Section -->
+    <section id="login-section" class="flex flex-col items-center bg-[#FFFFFF] rounded-xl">
+        <div class="my-5 h-20 w-20 flex items-center justify-center bg-gradient-to-r from-cyan-500 to-blue-500 rounded-xl">
+            <h1 class="text-white text-2xl font-bold"><span>L</span> <span>O</span> <br> <span>F</span> <span>O</span></h1>
+        </div>
+        <div class="w-full flex justify-between items-center gap-1 px-5">
+            <button id="btn-sign-in" onclick="signIn()" class="btn flex-1 text-white text-lg bg-gradient-to-r from-cyan-500 to-blue-500">Sign In</button>
+            <button id="btn-sign-up" onclick="signUp()" class="btn flex-1 text-black text-lg">Sign Up</button>
+        </div>
+        <!-- Sign In -->
+        <form id="pageSignIn" class="space-y-5 p-5 min-w-[330px]">
+            <div class="flex flex-col space-y-2">
+                <h1 class="text-base font-semibold">Enter Email</h1>
+                <input id="input-number" type="text" placeholder="Enter Email (name@uu.edu.bd)" class="input bg-[#f4f5f7] rounded-full border-none focus:outline-none focus:ring-0" />
+            </div>
+            <div class="flex flex-col space-y-2">
+                <h1 class="text-base font-semibold">Enter Password</h1>
+                <input id="input-pin" type="password" placeholder="Enter Password (At least 6 characters)" class="input bg-[#f4f5f7] rounded-full border-none focus:outline-none focus:ring-0" />
+            </div>
+            <div>
+                <button type="button" onclick="btnSignIn()" class="btn w-full bg-gradient-to-r from-cyan-500 to-blue-500 text-xl font-semibold text-white border-none rounded-full">Sign In</button>
+            </div>
+        </form>
+        <!-- Sign Up -->
+        <form id="pageSignUp" class="space-y-5 p-5 min-w-[330px] hidden">
+            <div class="flex flex-col space-y-2">
+                <h1 class="text-base font-semibold">Enter Name</h1>
+                <input id="input-number" type="text" placeholder="Name" class="input bg-[#f4f5f7] rounded-full border-none focus:outline-none focus:ring-0" />
+            </div>
+            <div class="flex flex-col space-y-2">
+                <h1 class="text-base font-semibold">Enter Student ID</h1>
+                <input id="input-number" type="text" placeholder="Student ID" class="input bg-[#f4f5f7] rounded-full border-none focus:outline-none focus:ring-0" />
+            </div>
+            <div class="flex flex-col space-y-2">
+                <h1 class="text-base font-semibold">Enter Email</h1>
+                <input id="input-number" type="text" placeholder="Email (name@uu.edu.bd)" class="input bg-[#f4f5f7] rounded-full border-none focus:outline-none focus:ring-0" />
+            </div>
+            <div class="flex flex-col space-y-2">
+                <h1 class="text-base font-semibold">Enter Password</h1>
+                <input id="input-pin" type="password" placeholder="Password (At least 6 characters)" class="input bg-[#f4f5f7] rounded-full border-none focus:outline-none focus:ring-0" />
+            </div>
+            <div>
+                <button type="button" onclick="btnSignUp()" class="btn w-full bg-gradient-to-r from-cyan-500 to-blue-500 text-xl font-semibold text-white border-none rounded-full">Sign Up</button>
+            </div>
+        </form>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
