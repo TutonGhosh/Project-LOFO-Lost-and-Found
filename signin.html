@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LOFO</title>
     <link rel="stylesheet" href="styles/style.css">
-    <link rel="shortcut icon" href="assets/lofo-logo.png.png" type="image/x-icon">
+    <link rel="icon" href="assets/lofo-logo.png?v=1" type="image/png">
     <!-- DaisyUI & TailwindCSS CDS -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
@@ -25,6 +25,10 @@
         </div>
         <!-- Sign In -->
         <form id="pageSignIn" class="space-y-5 p-5 min-w-[330px]">
+            <div class="flex flex-col space-y-2">
+                <h1 class="text-base font-semibold">Enter Name</h1>
+                <input id="input-name" type="text" placeholder="Name" class="input bg-[#f4f5f7] rounded-full border-none focus:outline-none focus:ring-0" />
+            </div>
             <div class="flex flex-col space-y-2">
                 <h1 class="text-base font-semibold">Enter Email</h1>
                 <input id="input-email" type="text" placeholder="Enter Email (name@uu.edu.bd)" class="input bg-[#f4f5f7] rounded-full border-none focus:outline-none focus:ring-0" />
