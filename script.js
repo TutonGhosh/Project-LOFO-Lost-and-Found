@@ -94,10 +94,12 @@ function submitBtn() {
   const posts = JSON.parse(localStorage.getItem("posts") || "[]");
   posts.push(post);
   localStorage.setItem("posts", JSON.stringify(posts));
+  
 
   const origin = localStorage.getItem("postOrigin");
   if (origin === "profile") window.location.href = "profile.html";
   else if (origin === "home") window.location.href = "home.html";
+
 }
 
 // Delete All Posts Button
@@ -113,6 +115,5 @@ function deleteAllPosts() {
                         <h1 class="text-2xl font-bold">All Posts Deleted.</h1>
                     </div>
                 </div>`;
-
   allPosts.appendChild(div);
 }
