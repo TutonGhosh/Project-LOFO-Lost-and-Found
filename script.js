@@ -108,7 +108,11 @@ function submitBtn() {
     posts.push(post);
     localStorage.setItem('posts', JSON.stringify(posts));
 
-    goBackBtn();
+    const origin = localStorage.getItem("postOrigin");
+    if(origin === "profile")
+        window.location.href = "profile.html";
+    else if(origin === "home")
+        window.location.href = 'home.html';
 }
 
 // Delete All Posts Button
