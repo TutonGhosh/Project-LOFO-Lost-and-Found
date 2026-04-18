@@ -16,29 +16,40 @@
 <body class="font-outfit bg-[#f4f5f7] h-[100vh] py-5 px-2 flex items-center justify-center">
     <!-- Create Post -->
      <section class="flex flex-col items-center justify-center">
-        <div class="w-[330px] md:min-w-[600px] bg-[#FFFFFF] rounded-xl py-10">
+        <div class="w-[330px] md:min-w-[500px] bg-[#FFFFFF] rounded-xl py-10">
             <div class="mb-10">
                 <h1 class="text-center text-white text-3xl font-semibold bg-gradient-to-r from-cyan-500 to-blue-500">Create Post</h1>
             </div>
         <form class="space-y-5 flex flex-col items-center px-2">
+            <!-- Title -->
             <div class="flex flex-col space-y-2 w-full">
                 <h1 class="text-base font-semibold">Title</h1>
-                <input id="input-title" type="text" placeholder="📢 Title" class="input w-full bg-[#f4f5f7] rounded-full border-none focus:outline-none focus:ring-0" />
+                <input id="input-title" type="text" placeholder="📢Title" class="input w-full bg-[#f4f5f7] rounded-full border-none focus:outline-none focus:ring-0" />
             </div>
+            <!-- Lost or Found -->
+            <div class="flex flex-col space-y-2 w-full">
+                <h1 class="text-base font-semibold">Lost or Found</h1>
+                <select id="input-opt" class="select select-ghost input w-full bg-[#f4f5f7] rounded-full border-none focus:outline-none focus:ring-0">
+                    <option disabled selected>Pick a category</option>
+                    <option value="lost">Lost</option>
+                    <option value="found">Found</option>
+                </select>
+            </div>
+            <!-- Location -->
             <div class="flex flex-col space-y-2 w-full">
                 <h1 class="text-base font-semibold">Location</h1>
                 <input id="input-location" type="text" placeholder="📍Location" class="input w-full bg-[#f4f5f7] rounded-full border-none focus:outline-none focus:ring-0" />
             </div>
+            <!-- Paragraph -->
             <div class="flex flex-col space-y-2 w-full">
                 <h1 class="text-base font-semibold">Paragraph</h1>
-                <textarea itemid="input-paragraph" name="" id="" rows="5" placeholder="📝 Write Paragraph" class="w-full bg-[#f4f5f7] border-none focus:outline-none focus:ring-0 p-2"></textarea>
+                <textarea id="input-paragraph" name="" id="" rows="5" placeholder="📝Write Paragraph" class="w-full bg-[#f4f5f7] border-none focus:outline-none focus:ring-0 p-2"></textarea>
             </div>
 
-            <div class="flex items-center justify-between gap-5 w-4/5">
-                <button type="submit"
-                    class="btn border-none shadow-none flex-1 text-white text-lg bg-gradient-to-r from-cyan-500 to-blue-500">Submit</button>
-                <button type="button" onclick="goBackBtn()" class="btn border-none shadow-none flex-1 text-white text-lg bg-gradient-to-r from-cyan-500 to-blue-500">Discard
-                    Post</button>
+            <!-- Submit & Discard Button -->
+            <div class="flex items-center justify-between gap-5 w-full">
+                <button type="button" onclick="goBackBtn()" class="btn border-none shadow-none flex-1 text-white text-lg bg-gradient-to-r from-cyan-500 to-blue-500">Discard Post</button>
+                <button type="button" onclick="submitBtn()" class="btn border-none shadow-none flex-1 text-white text-lg bg-gradient-to-r from-cyan-500 to-blue-500">Submit</button>
             </div>
         </form>
         </div>

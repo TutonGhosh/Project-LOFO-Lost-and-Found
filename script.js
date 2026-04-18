@@ -1,3 +1,5 @@
+const { createElement } = require("react");
+
 // Sign In
 function signIn()
 {
@@ -26,8 +28,9 @@ function btnSignIn()
     const email = inputEmail.value;
     const pass = inputPass.value;
 
-    if(isNaN(inputName.value) && (email.includes('@uu.edu.bd')) && (pass.length >= 6))
+    if(inputName.value && (email.includes('@uu.edu.bd')) && (pass.length >= 6))
     {
+        localStorage.setItem('p-name', document.getElementById('input-name').value);
         window.location.href = 'home.html';
     }
     else
@@ -48,8 +51,9 @@ function btnSignUp()
     const email = inputEmail.value;
     const pass = inputPass.value;
 
-    if(isNaN(inputName.value) && (inputSID.value.length === 10) && (email.includes('@uu.edu.bd')) && (pass.length >= 6))
+    if(inputName.value && (inputSID.value.length === 10) && (email.includes('@uu.edu.bd')) && (pass.length >= 6))
     {
+        localStorage.setItem('p-name', document.getElementById('input-name').value);
         window.location.href = 'home.html';
     }
     else
@@ -83,9 +87,33 @@ function createPostFromHome()
 // Go Back Button
 function goBackBtn()
 {
+    alert('Are you sure to discard this post?')
     const origin = localStorage.getItem("postOrigin");
     if(origin === "profile")
         window.location.href = "profile.html";
     else if(origin === "home")
         window.location.href = 'home.html';
+}
+
+// Submit Button
+function submitBtn() {
+    const inputTitle = document.getElementById('input-title').value;
+    const inputOpt = document.getElementById('input-opt').value;
+    const inputLocation = document.getElementById('input-location').value;
+    const inputParagraph = document.getElementById('input-paragraph').value;
+    const time = new Date().toLocaleTimeString();
+
+    const post = { inputTitle, inputOpt, inputLocation, inputParagraph, time };
+    const posts = JSON.parse(localStorage.getItem('posts') || '[]');
+    posts.push(post);
+    localStorage.setItem('posts', JSON.stringify(posts));
+
+    goBackBtn();
+}
+
+// Delete All Posts Button
+function deleteAllPosts() {
+    localStorage.removeItem('posts');
+    const allPosts = document.getElementById('all-posts');
+    if(allPosts) allPosts.innerHTML = '';
 }
