@@ -55,7 +55,7 @@
         // Username
         let inputName = localStorage.getItem('p-name');
         if (inputName) {
-            const userName = '@' + inputName.replace(/\s+/g, '').toLowerCase();
+            let userName = inputName.replace(/\s+/g, '').toLowerCase() + Math.floor(1000 + Math.random() * 9000);
             const usernameEl = document.getElementById('username');
             if (usernameEl) {
                 usernameEl.textContent = userName;

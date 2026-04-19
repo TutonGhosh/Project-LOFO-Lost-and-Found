@@ -30,6 +30,12 @@
             <div class="px-2.5 mb-5 flex items-center justify-between">
                 <h1 class="text-xl font-bold text-gray-600">All Posts</h1>
                 <!-- <button onclick="deleteAllPosts()" class="btn text-white text-lg bg-gradient-to-r from-cyan-500 to-blue-500">Delete All Posts</button> -->
+                <!-- Filter Buttons -->
+                <div class="flex gap-2">
+                    <button onclick="filterPosts('all')" class="btn btn-md shadow-none border-none text-white bg-gradient-to-r from-cyan-500 to-blue-500">All</button>
+                    <button onclick="filterPosts('lost')" class="btn btn-md shadow-none border-none text-red-600 bg-red-300">Lost</button>
+                    <button onclick="filterPosts('found')" class="btn btn-md shadow-none border-none text-green-600 bg-green-300">Found</button>
+                </div>
             </div>
             <div id="all-posts" class="space-y-10">
                 <!-- <div class="bg-[#f4f5f7] w-[calc(100%-20px)] mx-auto h-auto p-5 flex items-start justify-between gap-2 rounded-lg">
@@ -52,14 +58,18 @@
     </section>
 
     <script>
+    function loadPosts(filter = 'all') {
         const allPosts = document.getElementById('all-posts');
-        if (allPosts) {
-            const posts = JSON.parse(localStorage.getItem('posts') || '[]');
-            posts.forEach(post => {
-                const div = document.createElement('div');
-                const isLost = post.inputOpt === 'lost';
+        if(!allPosts) return;
 
-                div.innerHTML = `
+        const posts = JSON.parse(localStorage.getItem('posts') || '[]');
+        const filtered = filter === 'all' ? posts : posts.filter(post => post.inputOpt === filter);
+
+        allPosts.innerHTML = '';
+        filtered.forEach(post => {
+            const div = document.createElement('div');
+            const isLost = post.inputOpt === 'lost';
+            div.innerHTML = `
             <div class="bg-[#FFFFFF] w-full h-auto p-5 flex items-start justify-between gap-2 rounded-lg">
                 <div>
                     <h1 class="text-3xl font-bold">${post.inputTitle}</h1>
@@ -73,11 +83,17 @@
                     </button>
                 </div>
             </div>`;
+            allPosts.appendChild(div);
+        });
+    }
 
-                allPosts.appendChild(div);
-            });
-        }
-    </script>
+    function filterPosts(filter) {
+        loadPosts(filter);
+    }
+
+    // Page load এ সব post দেখাবে
+    loadPosts('all');
+</script>
     <script src="script.js"></script>
 </body>
 </html>

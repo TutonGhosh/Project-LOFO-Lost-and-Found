@@ -88,7 +88,7 @@ function submitBtn() {
   const inputOpt = document.getElementById("input-opt").value;
   const inputLocation = document.getElementById("input-location").value;
   const inputParagraph = document.getElementById("input-paragraph").value;
-  const time = new Date().toLocaleTimeString();
+  const time = new Date().toLocaleString();
 
   const post = { inputTitle, inputOpt, inputLocation, inputParagraph, time };
   const posts = JSON.parse(localStorage.getItem("posts") || "[]");
@@ -99,7 +99,6 @@ function submitBtn() {
   const origin = localStorage.getItem("postOrigin");
   if (origin === "profile") window.location.href = "profile.html";
   else if (origin === "home") window.location.href = "home.html";
-
 }
 
 // Delete All Posts Button
